@@ -7,7 +7,7 @@
 int loadRom(GB* gb, const char* path) {
     FILE* rom = fopen(path, "rb");
     if (!rom) {
-        printf("Could not open ROM");
+        printf("Could not open ROM\n");
         return errno;
     }
     fseek(rom, 0, SEEK_END);

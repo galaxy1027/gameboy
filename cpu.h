@@ -1,3 +1,5 @@
+#ifndef CPU_H
+#define CPU_H
 #include <stdint.h>
 
 /*
@@ -16,7 +18,7 @@
  * Bit 5: Half-Carry
  * Bit 4: Carry
  */
-typedef struct registers {
+typedef struct gb_registers {
     union {
         struct {
             uint8_t F;
@@ -49,5 +51,6 @@ typedef struct registers {
     uint16_t PC;
     uint16_t SP;
 
-} CPU_REGISTERS;
+} registers_t;
 
+#endif

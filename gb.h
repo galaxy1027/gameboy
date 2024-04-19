@@ -7,6 +7,7 @@
 typedef struct GB {
     uint8_t* rom;
     uint32_t rom_size;
+    registers_t* registers;
 } GB;
 
 int loadRom(GB* gb, const char* path);

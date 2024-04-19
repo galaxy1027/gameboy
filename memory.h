@@ -3,12 +3,9 @@
 
 #include <stdint.h>
 
-const uint16_t WRAM_SIZE = 8 * 1024;
-const uint16_t VRAM_SIZE = 8 * 1024;
-
 typedef struct Memory {
-    uint8_t wRam[WRAM_SIZE];
-    uint8_t vRam[VRAM_SIZE];
+    uint8_t wRam[8*1024];
+    uint8_t vRam[8*1024];
 } Memory;
 
 uint8_t readWRAM(Memory* memory, uint16_t addr);
