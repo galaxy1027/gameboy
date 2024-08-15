@@ -4,22 +4,23 @@
 #include <errno.h>
 #include "gb.h"
 
-int loadRom(GB* gb, const char* path) {
-    FILE* rom = fopen(path, "rb");
-    if (!rom) {
+int loadRom(GB *gb, const char *path)
+{
+    FILE *file = fopen(path, "rb");
+    if (!file)
+    {
         printf("Could not open ROM\n");
         return errno;
     }
-    fseek(rom, 0, SEEK_END);
-    uint32_t size = ftell(rom);
-    rewind(rom);
+    fseek(file, 0, SEEK_END);
+    uint32_t size = ftell(file);
+    rewind(file);
 
-    gb->rom_size = size;
-    gb->rom = malloc(gb->rom_size);
-    memset(gb->rom, 0xFF, gb->rom_size);
-    fread(gb->rom, 1, gb->rom_size, rom);
-    fclose(rom);
+    int romSpace = sizeof(gb->rom) / sizeof(uint8_t);
+
+    memset(gb->rom, 0xFF, romSpace); // initialize gameboy rom space to 1
+    fread(gb->rom, 1, romSpace, file);
+    fclose(file);
 
     return 0;
-
 }

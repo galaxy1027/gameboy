@@ -4,12 +4,12 @@
 #include "cpu.h"
 #include "memory.h"
 
-typedef struct GB {
-    uint8_t* rom;
-    uint32_t rom_size;
-    registers_t* registers;
+typedef struct GB
+{
+    uint8_t rom[0x7FFF];
+    gbRegisters_t registers;
 } GB;
 
-int loadRom(GB* gb, const char* path);
+int loadRom(GB *gb, const char *path);
 
 #endif
