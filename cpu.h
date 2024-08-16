@@ -78,4 +78,13 @@ uint16_t getRegister(gbRegisters_t *reg, registerName name);
 uint8_t getRegisterLo(gbRegisters_t *reg, registerName name);
 uint8_t getRegisterHi(gbRegisters_t *reg, registerName name);
 
+void setZeroFlag(gbRegisters_t *reg, int val);
+void setSubtractionFlag(gbRegisters_t *reg, int val);
+void setHalfCarryFlag(gbRegisters_t *reg, int val);
+void setCarryFlag(gbRegisters_t *reg, int val);
+
+int getZeroFlag(gbRegisters_t *reg);
+int getSubtractionFlag(gbRegisters_t *reg);
+int getHalfCarryFlag(gbRegisters_t *reg);
+int getCarryFlag(gbRegisters_t *reg);
 #endif
