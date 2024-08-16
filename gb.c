@@ -13,7 +13,6 @@ int loadRom(GB *gb, const char *path)
         return errno;
     }
     fseek(file, 0, SEEK_END);
-    uint32_t size = ftell(file);
     rewind(file);
 
     int romSpace = sizeof(gb->rom) / sizeof(uint8_t);
